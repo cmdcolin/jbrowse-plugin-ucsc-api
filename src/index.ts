@@ -1,5 +1,5 @@
-import AdapterType from '@gmod/jbrowse-core/pluggableElementTypes/AdapterType'
-import Plugin from '@gmod/jbrowse-core/Plugin'
+import AdapterType from '@jbrowse/core/pluggableElementTypes/AdapterType'
+import Plugin from '@jbrowse/core/Plugin'
 import { AdapterClass, configSchema } from './UCSCAdapter'
 
 export default class UCSCPlugin extends Plugin {

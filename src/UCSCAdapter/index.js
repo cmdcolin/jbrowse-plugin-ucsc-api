@@ -1,10 +1,10 @@
 import {
   ConfigurationSchema,
   readConfObject,
-} from "@gmod/jbrowse-core/configuration";
-import { ObservableCreate } from "@gmod/jbrowse-core/util/rxjs";
-import { BaseFeatureDataAdapter } from "@gmod/jbrowse-core/data_adapters/BaseAdapter";
-import SimpleFeature from "@gmod/jbrowse-core/util/simpleFeature";
+} from "@jbrowse/core/configuration";
+import { ObservableCreate } from "@jbrowse/core/util/rxjs";
+import { BaseFeatureDataAdapter } from "@jbrowse/core/data_adapters/BaseAdapter";
+import SimpleFeature from "@jbrowse/core/util/simpleFeature";
 import stringify from "json-stable-stringify";
 
 export const configSchema = ConfigurationSchema(
