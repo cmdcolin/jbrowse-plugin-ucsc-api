@@ -23,7 +23,7 @@ export const configSchema = ConfigurationSchema(
       defaultValue: "",
     },
   },
-  { explicitlyTyped: true }
+  { explicitlyTyped: true },
 );
 
 export class AdapterClass extends BaseFeatureDataAdapter {
@@ -34,18 +34,18 @@ export class AdapterClass extends BaseFeatureDataAdapter {
 
   getFeatures(region) {
     const { assemblyName, start, end, refName } = region;
-    return ObservableCreate(async (observer) => {
+    return ObservableCreate(async observer => {
       const { uri } = readConfObject(this.config, "base");
       const track = readConfObject(this.config, "track");
       try {
         const result = await fetch(
           `${uri}/getData/track?` +
             `genome=${assemblyName};track=${track};` +
-            `chrom=${refName};start=${start};end=${end}`
+            `chrom=${refName};start=${start};end=${end}`,
         );
         if (result.ok) {
           const data = await result.json();
-          data[track].forEach((feature) => {
+          data[track].forEach(feature => {
             observer.next(
               new SimpleFeature({
                 ...feature,
@@ -53,7 +53,7 @@ export class AdapterClass extends BaseFeatureDataAdapter {
                 end: feature.chromEnd,
                 refName: feature.chrom,
                 uniqueId: stringify(feature),
-              })
+              }),
             );
           });
           observer.complete();

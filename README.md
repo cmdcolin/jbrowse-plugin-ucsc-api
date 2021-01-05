@@ -1,28 +1,84 @@
-# UCSC API adapter for JBrowse 2
+# `jbrowse-plugin-ucsc`
 
-This plugin adapts the UCSC API
+> This plugin adapts the [UCSC API](https://genome.ucsc.edu/goldenPath/help/api.html)
 
 ## Install
 
-    yarn
+### For use in [JBrowse Web](https://jbrowse.org/jb2/docs/quickstart_web)
+
+No installation required
+
+### For use in [`@jbrowse/react-linear-view`](https://www.npmjs.com/package/@jbrowse/react-linear-genome-view)
+
+```
+yarn add @gmod/jbrowse-plugin-ucsc
+```
 
 ## Usage
 
-    yarn develop
+### In [JBrowse Web](https://jbrowse.org/jb2/docs/quickstart_web)
+
+#### Development
+
+```
+git clone https://github.com/cmdcolin/jbrowse-plugin-ucsc-api.git
+cd jbrowse-plugin-ucsc-api
+yarn
+yarn start
+```
+
+Then open JBrowse Web to (assuming it is running on port 3000):
+
+http://localhost:3000/?config=http://localhost:9000/jbrowse_config_ucsc.json
+
+#### Production
+
+Add to the "plugins" of your JBrowse Web config:
+
+```json
+{
+  "plugins": [
+    {
+      "name": "UCSC",
+      "url": "https://ghcdn.rawgit.org/cmdcolin/jbrowse-plugin-ucsc-api/master/rawgit/jbrowse-plugin-ucsc.umd.production.min.js"
+    }
+  ]
+}
+```
+
+### In [`@jbrowse/react-linear-view`](https://www.npmjs.com/package/@jbrowse/react-linear-genome-view)
+
+```tsx
+import React from 'react'
+import 'fontsource-roboto'
+import {
+  createViewState,
+  createJBrowseTheme,
+  JBrowseLinearGenomeView,
+  ThemeProvider,
+} from '@jbrowse/react-linear-view'
+import UCSC from 'jbrowse-plugin-ucsc'
+
+const theme = createJBrowseTheme()
+
+function View() {
+  const state = createViewState({
+    assembly: {
+      /* assembly */
+    },
+    tracks: [
+      /* tracks */
+    ],
+    plugins: [UCSC],
+  })
+  return (
+    <ThemeProvider theme={theme}>
+      <JBrowseLinearGenomeView viewState={state} />
+    </ThemeProvider>
+  )
+}
+```
 
 ## Screenshot
 
 ![](img/1.png)
-
-## Demo
-
-While `yarn develop` is running, open jbrowse-components dev server
-in another tab e.g. cd packages/jbrowse-web, yarn start, and then visit
-
-http://localhost:3000/?config=http://localhost:9000/config.json
-
-## Use in production
-
-Run `yarn build`, and then add the resulting plugin.js to the runtime plugins
-section of the config. This is the same plugin.js type reference in the
-assets/config_ucsc_api.json folder
