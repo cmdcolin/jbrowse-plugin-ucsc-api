@@ -10,6 +10,8 @@ No installation required
 
 ### For use in [`@jbrowse/react-linear-view`](https://www.npmjs.com/package/@jbrowse/react-linear-genome-view)
 
+Note: This NPM package is not available yet, but soon!
+
 ```
 yarn add @gmod/jbrowse-plugin-ucsc
 ```
@@ -49,17 +51,17 @@ Add to the "plugins" of your JBrowse Web config:
 ### In [`@jbrowse/react-linear-view`](https://www.npmjs.com/package/@jbrowse/react-linear-genome-view)
 
 ```tsx
-import React from 'react'
-import 'fontsource-roboto'
+import React from "react";
+import "fontsource-roboto";
 import {
   createViewState,
   createJBrowseTheme,
   JBrowseLinearGenomeView,
   ThemeProvider,
-} from '@jbrowse/react-linear-view'
-import UCSC from 'jbrowse-plugin-ucsc'
+} from "@jbrowse/react-linear-view";
+import UCSC from "jbrowse-plugin-ucsc";
 
-const theme = createJBrowseTheme()
+const theme = createJBrowseTheme();
 
 function View() {
   const state = createViewState({
@@ -70,12 +72,12 @@ function View() {
       /* tracks */
     ],
     plugins: [UCSC],
-  })
+  });
   return (
     <ThemeProvider theme={theme}>
       <JBrowseLinearGenomeView viewState={state} />
     </ThemeProvider>
-  )
+  );
 }
 ```
 
