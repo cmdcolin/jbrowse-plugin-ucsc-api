@@ -14,7 +14,7 @@ export const configSchema = ConfigurationSchema(
       type: "fileLocation",
       description: "base URL for the UCSC API",
       defaultValue: {
-        uri: "https://cors-anywhere.herokuapp.com/https://api.genome.ucsc.edu/",
+        uri: "https://cors-anywhere.herokuapp.com/https://api.genome.ucsc.edu",
       },
     },
     track: {
