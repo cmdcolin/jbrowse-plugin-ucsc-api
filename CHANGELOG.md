@@ -1,5 +1,6 @@
 # v1.0.1
 
+- Remove cors-anywhere proxy usage in default config
 - Add error handling for !result.ok
 - Avoid double slash
 
