@@ -43,21 +43,24 @@ export class AdapterClass extends BaseFeatureDataAdapter {
             `genome=${assemblyName};track=${track};` +
             `chrom=${refName};start=${start};end=${end}`,
         );
-        if (result.ok) {
-          const data = await result.json();
-          data[track].forEach(feature => {
-            observer.next(
-              new SimpleFeature({
-                ...feature,
-                start: feature.chromStart,
-                end: feature.chromEnd,
-                refName: feature.chrom,
-                uniqueId: stringify(feature),
-              }),
-            );
-          });
-          observer.complete();
+        if (!result.ok) {
+          throw new Error(
+            `Failed to fetch ${result.status} ${result.statusText}`,
+          );
         }
+        const data = await result.json();
+        data[track].forEach(feature => {
+          observer.next(
+            new SimpleFeature({
+              ...feature,
+              start: feature.chromStart,
+              end: feature.chromEnd,
+              refName: feature.chrom,
+              uniqueId: stringify(feature),
+            }),
+          );
+        });
+        observer.complete();
       } catch (e) {
         observer.error(e);
       }
