@@ -31,7 +31,11 @@ yarn start
 
 Then open JBrowse Web to (assuming it is running on port 3000):
 
-http://localhost:3000/?config=http://localhost:9000/jbrowse_config_ucsc.json
+http://localhost:3000/?config=http://localhost:9000/config.json
+
+#### Demo
+
+https://s3.amazonaws.com/jbrowse.org/code/jb2/master/index.html?config=https%3A%2F%2Funpkg.com%2Fjbrowse-plugin-ucsc%2Fdist%2Fconfig.json&session=share-wyY8ZgC9uY&password=CtcMX
 
 #### Production
 
