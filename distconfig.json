@@ -1,8 +1,8 @@
 {
   "plugins": [
     {
-      "name": "Biothings",
-      "url": "https://unpkg.com/jbrowse-plugin-biothings/dist/jbrowse-plugin-biothings.umd.production.min.js"
+      "name": "UCSC",
+      "url": "https://unpkg.com/jbrowse-plugin-ucsc/dist/jbrowse-plugin-ucsc.umd.production.min.js"
     }
   ],
   "assemblies": [
@@ -38,13 +38,13 @@
   "tracks": [
     {
       "type": "FeatureTrack",
-      "trackId": "mygene_hg38",
-      "name": "MyGene v3",
-      "assemblyNames": ["hg38"],
+      "trackId": "genehancer_ucsc_hg38",
+      "name": "UCSC GeneHancer",
       "category": ["Annotation"],
+      "assemblyNames": ["hg38"],
       "adapter": {
-        "baseUrl": "https://mygene.info/v3/query?q=${ref}:${start}-${end}&size=1000&fields=all&size=1000&species=human",
-        "type": "MyGeneV3Adapter"
+        "type": "UCSCAdapter",
+        "track": "geneHancerInteractionsDoubleElite"
       }
     }
   ]

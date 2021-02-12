@@ -1,3 +1,7 @@
+# v1.0.2
+
+- Update distconfig
+
 # v1.0.1
 
 - Remove cors-anywhere proxy usage in default config
