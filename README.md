@@ -13,7 +13,7 @@ No installation required
 Note: This NPM package is not available yet, but soon!
 
 ```
-yarn add @gmod/jbrowse-plugin-ucsc
+yarn add jbrowse-plugin-ucsc
 ```
 
 ## Usage
