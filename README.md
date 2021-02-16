@@ -10,8 +10,6 @@ No installation required
 
 ### For use in [`@jbrowse/react-linear-view`](https://www.npmjs.com/package/@jbrowse/react-linear-genome-view)
 
-Note: This NPM package is not available yet, but soon!
-
 ```
 yarn add jbrowse-plugin-ucsc
 ```
