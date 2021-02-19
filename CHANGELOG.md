@@ -1,3 +1,9 @@
+# v1.0.3
+
+- Parse the start/end from tStart/tEnd or genoStart/genoEnd for more track type support
+- Add support for subfeatures using the blockStart/blockEnd notion
+- Add support for knownGene track
+
 # v1.0.2
 
 - Update distconfig

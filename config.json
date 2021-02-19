@@ -106,13 +106,24 @@
 
     {
       "type": "FeatureTrack",
-      "trackId": "segdups_ucsc_hg19",
+      "trackId": "segdups_ucsc_hg38",
       "name": "UCSC SegDups",
-      "category": ["Annotation"],
-      "assemblyNames": ["hg19"],
+      "category": ["Repeat"],
+      "assemblyNames": ["hg38"],
       "adapter": {
         "type": "UCSCAdapter",
         "track": "genomicSuperDups"
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "knownGene",
+      "name": "UCSC knownGene",
+      "category": ["Annotation"],
+      "assemblyNames": ["hg38"],
+      "adapter": {
+        "type": "UCSCAdapter",
+        "track": "knownGene"
       }
     }
   ]
