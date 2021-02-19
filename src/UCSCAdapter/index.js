@@ -22,11 +22,6 @@ export const configSchema = ConfigurationSchema(
       description: "the track to select data from",
       defaultValue: "",
     },
-    nameField: {
-      type: "string",
-      description: "the field to select feature name from",
-      defaultValue: "",
-    },
   },
   { explicitlyTyped: true },
 );
@@ -42,8 +37,6 @@ export class AdapterClass extends BaseFeatureDataAdapter {
     return ObservableCreate(async observer => {
       const { uri } = readConfObject(this.config, "base");
       const track = readConfObject(this.config, "track");
-      const nameField = readConfObject(this.config, "nameField");
-      console.log({ nameField });
       try {
         const result = await fetch(
           `${uri}/getData/track?` +
@@ -57,16 +50,25 @@ export class AdapterClass extends BaseFeatureDataAdapter {
         }
         const data = await result.json();
         data[track].forEach(feature => {
-          console.log({ feature, nameField });
-          observer.next(
-            new SimpleFeature({
-              ...feature,
-              start: feature.chromStart || feature.tStart || feature.genoStart,
-              end: feature.chromEnd || feature.tEnd || feature.genoEnd,
-              refName: feature.chrom || feature.genoName || feature.tName,
-              uniqueId: stringify(feature),
-            }),
-          );
+          const data = {
+            ...feature,
+            start: feature.chromStart || feature.tStart || feature.genoStart,
+            end: feature.chromEnd || feature.tEnd || feature.genoEnd,
+            refName: feature.chrom || feature.genoName || feature.tName,
+            uniqueId: stringify(feature),
+          };
+          if (data.blockCount) {
+            data.chromStarts = data.chromStarts.split(",").map(i => +i);
+            data.blockSizes = data.blockSizes.split(",").map(i => +i);
+            data.subfeatures = [];
+            for (let i = 0; i < +data.blockCount; i++) {
+              data.subfeatures.push({
+                start: data.start + data.chromStarts[i],
+                end: data.start + data.chromStarts[i] + data.blockSizes[i],
+              });
+            }
+          }
+          observer.next(new SimpleFeature(data));
         });
         observer.complete();
       } catch (e) {
