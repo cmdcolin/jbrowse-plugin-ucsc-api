@@ -44,7 +44,7 @@ Add to the "plugins" of your JBrowse Web config:
   "plugins": [
     {
       "name": "UCSC",
-      "url": "https://ghcdn.rawgit.org/cmdcolin/jbrowse-plugin-ucsc-api/master/rawgit/jbrowse-plugin-ucsc.umd.production.min.js"
+      "url": "https://unpkg.com/jbrowse-plugin-ucsc/dist/jbrowse-plugin-ucsc.umd.production.min.js"
     }
   ]
 }
