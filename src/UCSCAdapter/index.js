@@ -22,6 +22,11 @@ export const configSchema = ConfigurationSchema(
       description: "the track to select data from",
       defaultValue: "",
     },
+    nameField: {
+      type: "string",
+      description: "the field to select feature name from",
+      defaultValue: "",
+    },
   },
   { explicitlyTyped: true },
 );
@@ -37,6 +42,8 @@ export class AdapterClass extends BaseFeatureDataAdapter {
     return ObservableCreate(async observer => {
       const { uri } = readConfObject(this.config, "base");
       const track = readConfObject(this.config, "track");
+      const nameField = readConfObject(this.config, "nameField");
+      console.log({ nameField });
       try {
         const result = await fetch(
           `${uri}/getData/track?` +
@@ -50,12 +57,13 @@ export class AdapterClass extends BaseFeatureDataAdapter {
         }
         const data = await result.json();
         data[track].forEach(feature => {
+          console.log({ feature, nameField });
           observer.next(
             new SimpleFeature({
               ...feature,
-              start: feature.chromStart,
-              end: feature.chromEnd,
-              refName: feature.chrom,
+              start: feature.chromStart || feature.tStart || feature.genoStart,
+              end: feature.chromEnd || feature.tEnd || feature.genoEnd,
+              refName: feature.chrom || feature.genoName || feature.tName,
               uniqueId: stringify(feature),
             }),
           );
