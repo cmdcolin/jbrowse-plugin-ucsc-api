@@ -1,6 +1,6 @@
 {
   "name": "jbrowse-plugin-ucsc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "JBrowse 2 UCSC API plugin",
   "repository": "github:cmdcolin/jbrowse-plugin-ucsc-api",
   "jbrowse-plugin": {
