@@ -4,7 +4,7 @@ This plugin adapts the [UCSC API](https://genome.ucsc.edu/goldenPath/help/api.ht
 
 ## Demo
 
-https://s3.amazonaws.com/jbrowse.org/code/jb2/master/index.html?config=https%3A%2F%2Funpkg.com%2Fjbrowse-plugin-ucsc%2Fdist%2Fconfig.json&session=share-wyY8ZgC9uY&password=CtcMX
+https://s3.amazonaws.com/jbrowse.org/code/jb2/main/index.html?config=https%3A%2F%2Funpkg.com%2Fjbrowse-plugin-ucsc%2Fdist%2Fconfig.json&session=share-wyY8ZgC9uY&password=CtcMX
 
 ## Screenshot
 
@@ -26,3 +26,7 @@ Add to the "plugins" of your JBrowse Web config:
 ```
 
 You can also download this file to your local server if you don't want to use a CDN
+
+## To use in embedded @jbrowse/react-linear-genome-view
+
+See [DEVELOPERS.md](DEVELOPERS.md)
