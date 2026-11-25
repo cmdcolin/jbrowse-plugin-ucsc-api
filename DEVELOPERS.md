@@ -48,11 +48,9 @@ curl 'https://api.genome.ucsc.edu/getData/track?genome=hg38;track=knownGene;chro
 The jb2hubs hg19 and hg38 configs name this plugin's `latest/` UMD, and JBrowse
 4.3.0 loads that url as well as v5 hosts do. A release that imports anything
 v4.3.0 does not re-export would make every v4.3.0 hg19 or hg38 session fail to
-load, so keep the imports to the ones every host since v2.0.0 provides, and boot
-the build on the hosts jb2hubs supports before running `pnpm version`:
+load, so keep the imports to the ones every host since v2.0.0 provides.
 
-```
-cd ~/src/jb2hubs
-pnpm check-config-compat --configs hg19,hg38 \
-  --plugin UCSC=$OLDPWD/dist/jbrowse-plugin-ucsc.umd.production.min.js
-```
+`pnpm host-compat` boots `dist/` with the hg19 and hg38 configs on v4.3.0, the
+latest release and `main`, and fails if a session error-pages or the plugin
+never loads. `pnpm version` and every push run it. It needs Chrome: set
+`CHROME_PATH` if it does not find one.
