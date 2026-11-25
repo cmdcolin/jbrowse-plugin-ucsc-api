@@ -73,7 +73,9 @@
     "typescript/no-unnecessary-type-parameters": "off",
     "typescript/no-unnecessary-type-conversion": "off",
     "typescript/prefer-optional-chain": "off",
-    "typescript/return-await": "off"
+    "typescript/return-await": "off",
+    "eslint/object-shorthand": "error",
+    "eslint/curly": "error"
   },
   "overrides": [
     {
