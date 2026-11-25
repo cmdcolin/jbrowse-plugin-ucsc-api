@@ -10,6 +10,8 @@ export default defineConfig(
   {
     ignores: [
       'eslint.config.mjs',
+      'esbuild.mjs',
+      'vitest.config.mts',
       'dist/*'
     ],
   },

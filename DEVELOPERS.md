@@ -1,56 +1,43 @@
-## To use in @jbrowse/react-linear-genome-view
+## Using the plugin in @jbrowse/react-linear-genome-view
 
 ```
-yarn add jbrowse-plugin-ucsc
+pnpm add jbrowse-plugin-ucsc
 ```
-
-Then add
 
 ```tsx
-import React from "react";
-import "fontsource-roboto";
 import {
   createViewState,
-  createJBrowseTheme,
   JBrowseLinearGenomeView,
-  ThemeProvider,
-} from "@jbrowse/react-linear-view";
-import UCSC from "jbrowse-plugin-ucsc";
-
-const theme = createJBrowseTheme();
+} from '@jbrowse/react-linear-genome-view'
+import UCSC from 'jbrowse-plugin-ucsc'
 
 function View() {
   const state = createViewState({
-    assembly: {
-      /* assembly */
-    },
-    tracks: [
-      /* tracks */
-    ],
+    assembly: {/* assembly */},
+    tracks: [/* tracks */],
     plugins: [UCSC],
-  });
-  return (
-    <ThemeProvider theme={theme}>
-      <JBrowseLinearGenomeView viewState={state} />
-    </ThemeProvider>
-  );
+  })
+  return <JBrowseLinearGenomeView viewState={state} />
 }
 ```
 
-## To modify code for this plugin
-
-In one shell, start jbrowse-web which starts on port 3000
+## Changing the plugin
 
 ```
-cd jbrowse-components/products/jbrowse-web
-yarn
-yarn start
+pnpm install
+pnpm start
 ```
 
-In another shell, start the dev server for this plugin which starts on port 9000
+`pnpm start` serves the plugin and [config.json](config.json) on port 9000. Open
+them in a JBrowse Web build, such as
+`https://jbrowse.org/code/jb2/latest/?config=http://localhost:9000/config.json`.
+
+`pnpm typecheck`, `pnpm lint` and `pnpm test` check a change; `pnpm version`
+runs all three and the build first.
+
+The tests read trimmed API responses in `src/UCSCAdapter/__fixtures__/`. To
+refresh one, fetch the track again, for example:
 
 ```
-cd jbrowse-plugin-ucsc-api
-yarn start
-#then visit http://localhost:3000/?config=http://localhost:9000/config.json
+curl 'https://api.genome.ucsc.edu/getData/track?genome=hg38;track=knownGene;chrom=chr1;start=998000;end=1001000'
 ```

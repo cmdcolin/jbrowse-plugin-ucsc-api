@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+# our own packages, which this plugin builds against the day they release
+minimumReleaseAgeExclude:
+  - '@jbrowse/*'

@@ -1,13 +1,8 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
     "target": "es2018",
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
-    "rootDir": "./src",
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
@@ -18,11 +13,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": false,
     "noUncheckedIndexedAccess": true,
     "allowJs": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noEmit": true
   },
-  "include": ["src"],
-  "exclude": ["**/dist/"]
+  "include": ["src"]
 }
