@@ -10,6 +10,17 @@ the DECIPHER population CNVs. Tracks UCSC marks as protected (HGMD, SpliceAI,
 PrimateAI and others) are refused by the API too, and the track shows UCSC's
 explanation.
 
+## JBrowse versions
+
+- **JBrowse 2 v2.0.0 and newer** can load the current release. It imports only
+  modules every host since v2.0.0 provides, and it has been run on v4.3.0 and
+  v5.
+- **v5 or newer** is needed for features coloured by their UCSC colour column
+  and for the zoom-in notice when a region holds more than `maxItems`
+  features. Older hosts draw the default colour and show the limit as an error.
+- **The plugin store** serves this release to v5 hosts. Hosts older than v5
+  read a frozen store manifest that installs v1.0.3.
+
 ## Demo
 
 https://jbrowse.org/code/jb2/latest/?config=https%3A%2F%2Funpkg.com%2Fjbrowse-plugin-ucsc%2Fdist%2Fconfig.json

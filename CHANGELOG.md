@@ -1,4 +1,4 @@
-# Unreleased
+# v1.0.4
 
 - Fix the build: `json-stable-stringify` was never a dependency
 - Split bigGenePred transcripts such as hg38 `knownGene` into CDS and UTRs, and
@@ -13,6 +13,7 @@
 - Colour features from itemRgb and bigInteract color columns
 - Label RepeatMasker features by repeat name
 - Demo config shows the GeneHancer, COSMIC and DECIPHER tracks
+- Publish from CI with npm trusted publishing
 
 # v1.0.3
 
