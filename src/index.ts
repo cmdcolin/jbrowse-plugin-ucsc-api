@@ -1,8 +1,8 @@
 import Plugin from '@jbrowse/core/Plugin'
 import AdapterType from '@jbrowse/core/pluggableElementTypes/AdapterType'
 
-import { AdapterClass, configSchema } from './UCSCAdapter'
 import { version } from '../package.json'
+import { AdapterClass, configSchema } from './UCSCAdapter'
 
 import type PluginManager from '@jbrowse/core/PluginManager'
 

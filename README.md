@@ -3,12 +3,11 @@
 A JBrowse 2 adapter that reads features from the
 [UCSC Genome Browser API](https://genome.ucsc.edu/goldenPath/help/api.html).
 
-The API serves some tracks whose files UCSC does not offer for download, so
-this adapter is a way to show them in JBrowse. On hg38 these include the
-GeneHancer regulatory elements, genes and interactions, COSMIC mutations and
-the DECIPHER population CNVs. Tracks UCSC marks as protected (HGMD, SpliceAI,
-PrimateAI and others) are refused by the API too, and the track shows UCSC's
-explanation.
+The API serves some tracks whose files UCSC does not offer for download, so this
+adapter is a way to show them in JBrowse. On hg38 these include the GeneHancer
+regulatory elements, genes and interactions, COSMIC mutations and the DECIPHER
+population CNVs. Tracks UCSC marks as protected (HGMD, SpliceAI, PrimateAI and
+others) are refused by the API too, and the track shows UCSC's explanation.
 
 ## JBrowse versions
 
@@ -16,10 +15,10 @@ explanation.
   modules every host since v2.0.0 provides, and it has been run on v4.3.0 and
   v5.
 - **v5 or newer** is needed for features coloured by their UCSC colour column
-  and for the zoom-in notice when a region holds more than `maxItems`
-  features. Older hosts draw the default colour and show the limit as an error.
-- **The plugin store** serves this release to v5 hosts. Hosts older than v5
-  read a frozen store manifest that installs v1.0.3.
+  and for the zoom-in notice when a region holds more than `maxItems` features.
+  Older hosts draw the default colour and show the limit as an error.
+- **The plugin store** serves this release to v5 hosts. Hosts older than v5 read
+  a frozen store manifest that installs v1.0.3.
 
 ## Demo
 
@@ -81,8 +80,8 @@ To find track names, list a genome's tracks:
 ## What the adapter reads
 
 - **Gene tracks** (genePred and bigGenePred, such as `ncbiRefSeq` and
-  `knownGene`) become transcripts with CDS and UTR parts, labelled with the
-  gene name.
+  `knownGene`) become transcripts with CDS and UTR parts, labelled with the gene
+  name.
 - **BED tracks with blocks** keep their blocks as subfeatures.
 - **RepeatMasker** features are labelled with the repeat name; **chains** are
   placed by their target coordinates.

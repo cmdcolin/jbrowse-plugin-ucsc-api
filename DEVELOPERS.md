@@ -32,8 +32,9 @@ pnpm start
 them in a JBrowse Web build, such as
 `https://jbrowse.org/code/jb2/latest/?config=http://localhost:9000/config.json`.
 
-`pnpm typecheck`, `pnpm lint` and `pnpm test` check a change; `pnpm version`
-runs all three and the build first.
+`pnpm format` formats with oxfmt. `pnpm typecheck` (tsrs), `pnpm lint`
+(type-aware oxlint) and `pnpm test` check a change; `pnpm version` runs them,
+`pnpm format:check` and the build first.
 
 The tests read trimmed API responses in `src/UCSCAdapter/__fixtures__/`. To
 refresh one, fetch the track again, for example:
